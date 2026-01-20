@@ -27,12 +27,15 @@ jobs:
           terraform_version: 1.6.0
 
       - name: Terraform Init
+        working-directory: ./infra
         run: terraform init -reconfigure
 
       - name: Terraform Plan
+        working-directory: ./infra
         id: plan
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
+        working-directory: ./infra
         if: github.event_name == 'push'
         run: terraform apply -auto-approve tfplan

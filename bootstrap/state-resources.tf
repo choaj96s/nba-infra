@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "tf_state" {
   bucket = "nba-infra-terraform-state-ac"
 }
 
-resource "aws_s3_bucket_versioning" "tf_state_versioning" {
+resource "aws_s3_bucket_versioning" "tf_state" {
   bucket = aws_s3_bucket.tf_state.id
   versioning_configuration {
     status = "Enabled"
